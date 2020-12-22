@@ -117,7 +117,7 @@ def compare_hover_items(url, ig):
                     </ul>
                 </div>"""
 
-    add_border = "style='border: 4px solid green;'"
+    add_background = "style='border: 4px solid green;'"
 
     # Posts miteinander vergleichen #TODO Für igtv, tagged anpassen
     for new_ele in new_elements:
@@ -135,8 +135,8 @@ def compare_hover_items(url, ig):
                             hover.format(likes_views = new_ele.attrib[to_cmp],
                             icon_likes_views="coreSpritePlayIconSmall",
                             comments = new_ele.attrib["data-comment"],
-                            style_likes_views = add_border,
-                            style_comments = add_border)
+                            style_likes_views = add_background,
+                            style_comments = add_background)
                         )
                     )
                 elif new_ele.attrib[to_cmp] != old_ele.attrib[to_cmp]:
@@ -145,7 +145,7 @@ def compare_hover_items(url, ig):
                             hover.format(likes_views = new_ele.attrib[to_cmp],
                             icon_likes_views="coreSpritePlayIconSmall",
                             comments = new_ele.attrib["data-comment"],
-                            style_likes_views = add_border,
+                            style_likes_views = add_background,
                             style_comments = "")
                         )
                     )    
@@ -156,7 +156,7 @@ def compare_hover_items(url, ig):
                             icon_likes_views="coreSpritePlayIconSmall",
                             comments = new_ele.attrib["data-comment"],
                             style_likes_views = "",
-                            style_comments = add_border)
+                            style_comments = add_background)
                         )
                     )
 
