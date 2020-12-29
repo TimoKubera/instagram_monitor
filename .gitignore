@@ -1,5 +1,6 @@
 # Ignore macOs trash
 .DS_Store
+/Users/timo/Documents/Uni/SP/EP-Instagramm-1/instagram/data/config.py
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
