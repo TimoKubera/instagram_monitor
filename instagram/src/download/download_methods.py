@@ -99,11 +99,6 @@ def add_html_tags(url, ig_obj: InstagramObject, prof_data: ProfileData) -> None:
     """
     if url["type"] == "posts":
         for i, post in enumerate(ig_obj.get_posts()):
-            print("Debug add html tags")
-            print("i = " + str(i))
-            print(etree.tostring(post, pretty_print=True))
-            print("~~~~~")
-            print()
             if post.xpath(".//span[@aria-label='Video']"):
                 post.attrib["data-view-count"] = str(prof_data.posts[i]["view_count"])
                 replace_video_thumbnail(ig_obj, post)

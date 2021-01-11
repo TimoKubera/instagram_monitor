@@ -27,6 +27,9 @@ class InstagramStore:
                     init_return_values(url)
                     random_sleep(5)
                     content = save_html(url)
+                    print("Content instagram_store")
+                    print(content)
+                    print()
                     ig = InstagramObject(url, "new", content)
                     break
                 except Exception as e:
@@ -44,10 +47,6 @@ class InstagramStore:
 
             initial = driver.execute_script("return window._sharedData;")
             profile = ProfileData(initial_data=initial, requests=driver.requests)
-            print("Debug")
-            print(profile)
-            print("~~~~~~")
-            print()
             add_html_tags(url, ig, profile)
 
         driver.quit()
