@@ -27,9 +27,6 @@ class InstagramStore:
                     init_return_values(url)
                     random_sleep(5)
                     content = save_html(url)
-                    print("Content instagram_store")
-                    print(content)
-                    print()
                     ig = InstagramObject(url, "new", content)
                     break
                 except Exception as e:

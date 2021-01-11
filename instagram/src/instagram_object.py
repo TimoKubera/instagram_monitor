@@ -20,14 +20,13 @@ class InstagramObject:
         self.posts = None
         self.igtvs = None
         self.tags = None
-        self.content = None
+        self.content = content
         # Default Video thumbnail path
         self.video_thumbnail_path = os.path.join(config_folder, "video_thumbnail.jpeg")
 
         self.__set_tree(url)
         self.__set_followers(url)
         self.__set_following(url)
-        self.__set_content(content)
         if url["type"] == "posts":
             self.__set_posts()
         elif url["type"] == "igtv":
@@ -135,12 +134,8 @@ class InstagramObject:
 
     def __set_tree(self, url) -> None:
         if self.content is not None:
-            print("Content is not None")
             self.tree = etree.fromstring(self.content)
         else:
-            print("Content is None")
-            print(self.content)
-            print()
             if self.flag == NEW:
                 self.tree = html.parse(get_new_html_path(url))
             elif self.flag == OLD:
@@ -165,9 +160,6 @@ class InstagramObject:
 
     def __set_tags(self) -> None:
         self.tags = self.tree.xpath("//div[@id='react-root']//article//a")
-
-    def __set_content(self, content) -> None:
-        self.content = content
 
     """
     Returns the Tree,flag, posts etc.
