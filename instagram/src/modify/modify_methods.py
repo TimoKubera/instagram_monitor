@@ -249,7 +249,6 @@ def compare_hover_items(url, ig):
     head[0].append(etree.fromstring(css))
     ig[NEW].write(url)
 
-
 def compare_tagged(url, ig):
     """
             This function compares the posts in the Tagged section of the profile and marks
