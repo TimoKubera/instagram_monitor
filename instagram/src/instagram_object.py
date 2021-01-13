@@ -23,7 +23,6 @@ class InstagramObject:
         self.__set_tree(url)
         self.__set_followers(url)
         self.__set_following(url)
-        self.__set_story(url)
         if url["type"] == "posts":
             self.__set_posts()
         elif url["type"] == "igtv":
@@ -126,13 +125,6 @@ class InstagramObject:
     def __set_following(self, url) -> None:
         self.following = list(
             self.get_tree().xpath("//a[@href='https://www.instagram.com/" + url["id"] + "/following/']")[0].iter())[0]
-
-    def __set_story(self, url) -> None:
-        prof_pic = self.get_tree().xpath("//img[@data-testid=''user-avatar]")[0]
-        if prof_pic.attrib["draggable"] == "true": # checken ob das draggable attribut wirklich signalisiert, ob eine story exisitert, oder nicht
-            self.story = prof_pic
-        else:
-            self.story = None
 
     def __set_posts(self) -> None:
         self.posts = self.get_tree().xpath("//div[@id='react-root']//article//a")
