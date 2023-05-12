@@ -1,6 +1,9 @@
 **Anpassungen:**
+
+- Usage:  </br>
 Es ist wichtig in der “config.py” die Credentials des Benutzeraccounts sowie die Geckodriver-Version entsprechend anzupassen. Ebenfalls muss auch der Pfad des Video Thumbnails angepasst werden(aktuell noch im “instagram_object.py”).
 
+- About the project: </br>
 Dieses Python-Script lädt alle Unterseiten einer Instagram Benutzerseite herunter und überprüft ob es seit der letzten Überprüfung eine Veränderung gab. Je nach Granularität(fein oder grob) werden dabei entweder nur die einzelnen Beiträge und Stories des Benutzers überprüft oder aber auch die Anzahl der Followers, Followings, Likes,Videoaufrufe sowie die Kommentare auf seiner Benutzerseite.
 Das Script teilt sich in zwei Phasen auf: Die **Download-Phase** und die **Monitor-Phase**.
 
