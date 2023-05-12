@@ -101,52 +101,16 @@ Es ist Python>=3.0 erforderlich, um das Programm auszuführen, sowie die Install
 <a name="usage"></a>
 <!-- USAGE EXAMPLES -->
 ## Usage
-1. Analysieren Use Case
+<!-- TODO Bilder hinzufügen -->
+In der <b>Download-Phase</b> wird eine neue Version von allen Unterseiten einer Benutzerseite heruntergeladen(Posts, IGTVs, Tagged, …). Es werden maximal zwei Kopien der Seite archiviert(“new.html”, “old.html”). Gibt es keine vorherige Version (das Verzeichnis ist leer), so wird die neu heruntergeladene Version direkt als “new.html” gespeichert. Gibt es bereits eine “new.html” im Verzeichnis, so wird sie in “old.html” umbenannt und die neue heruntergeladene Version als “new.html” gespeichert. Gibt es sowohl eine “old.html” als auch eine “new.html” im Verzeichnis, so wird die “old.html” gelöscht und “new.html” wird in “old.html” umbenannt. Die neue heruntergeladene Version wird als “new.html” gepeichert.
 
-Bevor ein Datensatz analysiert werden kann, muss der SW-User vorab einige Informationen übermitteln.
-Diese umfassen:
-* Skalenformat der Daten auswählen (nominal, ordinal, intervall, rational)
-* Datei importieren
-  * Kategorienamen spezifizieren (bei diskretem Skalenformat)
-* Auswahl der Bewerter, deren Bewertungen analysiert werden sollen
-* Auswahl der Metriken, mit denen die Analyse durchgeführt werden soll
-* Auswahl der Gewichte für die Metriken
-* Analyse starten
+Dynamische Informationen durch z.B. Javascript sammeln wir und speichern sie in der "profile_data.py" geordnet ab, um später darauf zugreifen zu können (z.B. Um zu erkennen ob ein Post ein Video oder Bild ist).
 
-Es stehen die folgenden Metriken für die Analysen zur Auswahl:
-* Cohen's Kappa
-* Conger's Kappa
-* Fleiss' Kappa
-* Krippendorff's Alpha
-* Gwet's AC
-* ICC
+In der "instagram_object.py" speichern wir die Informationen ab, die wir später in der Monitor-Phase brauchen, um Unterschiede zu erkennen. So verhindern wir ein doppeltes Iterien über die .html Dateien. Z.B sind das Followers und Followings Anzahl, aber auch LXML-Objekte, die Posts beinhalten.
 
-Nachdem die Informationen angegeben worden sind, kann eine Analyse durchgeführt und als Excel-Datei exportiert werden.
+Es werden zusätzlich in der <b>Download-Phase</b> alle relativen Links zu absoluten Links umgewandelt und Video Thumbnails mit einem Standard Thumbnail ersetzt, da die Video Thumbnails nur für 24 Stunden gültig sind.
 
-Die Ergebnisse von Intrarater-Analysen von mehreren Bewertern, werden auf dem folgenden Bild dargestellt.
-
-<img src="https://raw.githubusercontent.com/TimoKubera/IIRA/main/data/img/analyse.png" alt="analyse-results">
-
-Jedes Fenster in der GUI ist mit einem Hilfe-Button ausgestattet, in dem Informationen zum gerade geöffneten Fenster bereitgestellt werden.
-Das Hilfefenster bzgl. der Ergebnisse liefert beispielsweise eine Interpretationsmöglichkeit der Ergebnisse nach Landis & Koch.
-
-<img src="https://raw.githubusercontent.com/TimoKubera/IIRA/main/data/img/helpframe_interpretation.png" alt="help-interpretation" width="420" heigth="700">
-
-2. Bewerten Use Case
-Um einen Datensatz zu bewerten, ist das Vorgehen ähnlich:
-* Skalenformat der Daten auswählen (nominal, ordinal, intervall, rational)
-* Datei importieren
-  * Kategorienamen spezifizieren (bei diskretem Skalenformat)
-* Bewertungen starten
-
-Bevor die Bewertungssession gestartet wird, hat der Bewerter die Möglichkeit, die Reihenfolge der Bewertungselemente zu randomisieren. Dadurch soll sichergestellt werden, dass sich der Bewerter nicht an Patterns gewöhnen kann, die den Bewertungsvorgang beeinflußen könnten.
-
-Die Bewertung wird anschließend in dem folgenden Fenster vorgenommen.
-
-<img src="https://raw.githubusercontent.com/TimoKubera/IIRA/main/data/img/rate.png" alt="help-interpretation">
-
-Beim Speichern der Bewertungssession, werden sowohl die vorgenommenen Bewertungen gespeichert, als auch ein Bewertername, bzw. eine Bewerter-ID.
-Die Bewerter-ID entspricht dem aktuell angemeldeten Profil und kann während der Bewertungssession über den entsprechenden Button, oben links, geändert werden.
+In der <b>Monitor-Phase</b> vergleichen wir jeweils zwei Versionen einer Unterseite oder Story und schauen, wo Unterschiede auftreten. Gibt es Unterschiede, so wird das jeweilige Objekt mit grüner Farbe hervorgehoben.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
