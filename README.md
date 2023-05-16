@@ -28,9 +28,6 @@
   <ol>
     <li>
       <a href="#about-the-project">Über das Projekt</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#requirements">Requirements</a>
@@ -45,8 +42,8 @@
 <!-- ABOUT THE PROJECT -->
 ## Über das Projekt
 
-<p>Der Instagram Monitor lädt alle Unterseiten einer Instagram Benutzerseite herunter und überprüft ob es seit der letzten Überprüfung eine Veränderung gab.</p>
-<p>Je nach Granularität(fein oder grob) werden dabei entweder nur die einzelnen Beiträge und Stories des Benutzers überprüft oder aber auch die Anzahl der Followers, Followings, Likes,Videoaufrufe sowie die Kommentare auf seiner Benutzerseite.</p>
+<p>Der Instagram Monitor lädt alle Unterseiten einer Instagram-Benutzerseite herunter und überprüft, ob es seit der letzten Überprüfung Veränderungen gab.</p>
+<p>Je nach Granularität(fein oder grob) werden dabei entweder nur die einzelnen Beiträge und Stories des Benutzers überprüft oder aber auch die Anzahl der Followers, Followings, Likes, Videoaufrufe, sowie die Kommentare auf seiner Benutzerseite.</p>
 <p>Das Script teilt sich in zwei Phasen auf: </br>
 Die <b>Download-Phase</b> und die <b>Monitor-Phase</b>.</p>
 
@@ -56,20 +53,7 @@ Anwendungen:
   * Checke, ob sich die "IG-TV-Subpage" verändert hat
   * Checke, ob sich "Tagged-Subpage" verändert hat
   * Checke, ob sich die Anzahl der "Abonnenten", "abonniert", oder "Beiträge" verändert hat
-* Lädt die Instagram-Seiten herunter und speichert sie, inklusive der Änderungen in einer HTML-Datei
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<a name="built-with"></a>
-### Built With
-
-Eine kleine Übersicht der wichtigsten Sprachen und Frameworks.
-Eine vollständige Liste der requirements findest du unter <a href="#requirements">Requirements</a>.
-
-* ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-* ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-* ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+* Lade die Instagram-Seiten herunter und speichere sie, inklusive der Änderungen, in einer HTML-Datei
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,16 +68,13 @@ Es ist Python>=3.0 erforderlich, um das Programm auszuführen, sowie die Install
 
 ### Installation
 
-1. Die Repo von <a href="https://github.com/timokubera/iira">GitHub</a> clonen.
+1. Die Repo von <a href="https://github.com/timokubera/instagram_monitor">GitHub</a> clonen.
 2. Abhängigkeiten installieren
    ```sh
    cd ~/path/to/instagram_monitor
    pip3 install -r requirements.txt
    ```
-3. Programm ausführen
-   ```sh
-   python app.py
-   ```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,16 +82,26 @@ Es ist Python>=3.0 erforderlich, um das Programm auszuführen, sowie die Install
 <a name="usage"></a>
 <!-- USAGE EXAMPLES -->
 ## Usage
-<!-- TODO Bilder hinzufügen -->
-In der <b>Download-Phase</b> wird eine neue Version von allen Unterseiten einer Benutzerseite heruntergeladen(Posts, IGTVs, Tagged, …). Es werden maximal zwei Kopien der Seite archiviert(“new.html”, “old.html”). Gibt es keine vorherige Version (das Verzeichnis ist leer), so wird die neu heruntergeladene Version direkt als “new.html” gespeichert. Gibt es bereits eine “new.html” im Verzeichnis, so wird sie in “old.html” umbenannt und die neue heruntergeladene Version als “new.html” gespeichert. Gibt es sowohl eine “old.html” als auch eine “new.html” im Verzeichnis, so wird die “old.html” gelöscht und “new.html” wird in “old.html” umbenannt. Die neue heruntergeladene Version wird als “new.html” gepeichert.
+<b>Programm ausführen</b>
+   ```sh
+   cd ~/path/to/instagram_monitor
+   python instagram/src/ig.py
+   ```
+</br>
+<b>Beschreibung des Programmablaufes</b>
+<p>In der <b>Download-Phase</b> wird eine neue Version von allen Unterseiten einer Benutzerseite heruntergeladen(Posts, IGTVs, Tagged, etc.).</p>
+<p>Es werden maximal zwei Kopien der Seite archiviert("new.html" und "old.html"). </br>
+Gibt es keine vorherige Version (das Verzeichnis ist leer), so wird die neu heruntergeladene Version direkt als "new.html" gespeichert. </br>
+Gibt es bereits eine "new.html" im Verzeichnis, so wird sie in “old.html” umbenannt und die neue heruntergeladene Version als "new.html" gespeichert. </br>Gibt es sowohl eine "old.html" als auch eine "new.html" im Verzeichnis, so wird die "old.html" gelöscht und "new.html" wird in "old.html" umbenannt. Die neue heruntergeladene Version wird als "new.html" gepeichert.</p>
 
-Dynamische Informationen durch z.B. Javascript sammeln wir und speichern sie in der "profile_data.py" geordnet ab, um später darauf zugreifen zu können (z.B. Um zu erkennen ob ein Post ein Video oder Bild ist).
 
-In der "instagram_object.py" speichern wir die Informationen ab, die wir später in der Monitor-Phase brauchen, um Unterschiede zu erkennen. So verhindern wir ein doppeltes Iterien über die .html Dateien. Z.B sind das Followers und Followings Anzahl, aber auch LXML-Objekte, die Posts beinhalten.
+<p>Dynamische Informationen durch z.B. Javascript sammeln wir und speichern sie in der "profile_data.py" geordnet ab, um später darauf zugreifen zu können (z.B. Um zu erkennen ob ein Post ein Video oder Bild ist).</p>
 
-Es werden zusätzlich in der <b>Download-Phase</b> alle relativen Links zu absoluten Links umgewandelt und Video Thumbnails mit einem Standard Thumbnail ersetzt, da die Video Thumbnails nur für 24 Stunden gültig sind.
+<p>In der "instagram_object.py" speichern wir die Informationen ab, die wir später in der Monitor-Phase brauchen, um Unterschiede zu erkennen. So verhindern wir ein doppeltes Iterien über die .html Dateien. Z.B. sind das Followers und Followings-Anzahl, aber auch LXML-Objekte, die Posts beinhalten.</p>
 
-In der <b>Monitor-Phase</b> vergleichen wir jeweils zwei Versionen einer Unterseite oder Story und schauen, wo Unterschiede auftreten. Gibt es Unterschiede, so wird das jeweilige Objekt mit grüner Farbe hervorgehoben.
+<p>Es werden zusätzlich in der <b>Download-Phase</b> alle relativen Links zu absoluten Links umgewandelt und Video Thumbnails mit einem Standard Thumbnail ersetzt, da die Video Thumbnails nur für 24 Stunden gültig sind.</p>
+
+<p>In der <b>Monitor-Phase</b> vergleichen wir jeweils zwei Versionen einer Unterseite oder Story und schauen, wo Unterschiede auftreten. Gibt es Unterschiede, so wird das jeweilige Objekt mit grüner Farbe hervorgehoben.</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
