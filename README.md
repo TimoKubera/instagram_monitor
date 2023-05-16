@@ -101,7 +101,14 @@ Gibt es bereits eine "new.html" im Verzeichnis, so wird sie in “old.html” um
 
 <p>Es werden zusätzlich in der <b>Download-Phase</b> alle relativen Links zu absoluten Links umgewandelt und Video Thumbnails mit einem Standard Thumbnail ersetzt, da die Video Thumbnails nur für 24 Stunden gültig sind.</p>
 
-<p>In der <b>Monitor-Phase</b> vergleichen wir jeweils zwei Versionen einer Unterseite oder Story und schauen, wo Unterschiede auftreten. Gibt es Unterschiede, so wird das jeweilige Objekt mit grüner Farbe hervorgehoben.</p>
+<p>In der <b>Monitor-Phase</b> vergleichen wir jeweils zwei Versionen einer Unterseite oder Story und schauen, wo Unterschiede auftreten. Gibt es Unterschiede, so wird das jeweilige Objekt mit grüner Farbe hervorgehoben.
+
+<p>Auf dem folgenden Bild wird exemplarisch dargestellt, wie die Abonnenten-Anzahl, bzw. die abonniert-Anzahl hervorgehoben werden, wenn sich die Zahlen, seit dem letzten Seitenaufruf, verändert haben:
+<img src="https://raw.githubusercontent.com/TimoKubera/instagram_monitor/dev/instagram/data/img/ph-profile.png" alt="changed-follower-count-following-count"></p>
+
+<p>Auf dem folgenden Bild ist zu sehen, dass die ersten drei Instagram-Posts, seit dem letzten Seitenaufruf, neu hinzugekommen sind. Außerdem hat sich bei den Posts 4 und 5 die Anzahl der Kommentare, bzw. der Likes, verändert und beim dritten Post hat sich beides verändert.
+<img src="https://raw.githubusercontent.com/TimoKubera/instagram_monitor/dev/instagram/data/img/ph-posts.png" alt="changed-posts">
+</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
