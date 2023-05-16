@@ -1,5 +1,5 @@
 <a name="readme-top"></a>
-[![MIT License][license-shield]][license-url]
+[![MIT License][https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge]][https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt]
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
